@@ -1,0 +1,4 @@
+nano /usr/src/app/index.js
+Write console.log('Hello World') into file
+Ctrl-X to exit Nano
+Y to save changes
