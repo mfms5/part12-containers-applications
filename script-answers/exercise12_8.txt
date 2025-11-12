@@ -1,0 +1,9 @@
+docker compose -f docker-compose.dev.yml up -d
+docker exec -it 8b11 bash
+mongosh -u the_user -p the_password
+show dbs
+use the_database
+show collections
+db.todos.find({})
+db.todos.insertOne({ text: "Increase the number of tools in my tool belt", done: false })
+db.todos.find({})
