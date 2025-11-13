@@ -1,0 +1,6 @@
+docker compose -f docker-compose.dev.yml up -d
+docker exec -it fe6 redis-cli
+KEYS *
+GET added_todos
+SET added_todos 9001
+DEL added_todos
