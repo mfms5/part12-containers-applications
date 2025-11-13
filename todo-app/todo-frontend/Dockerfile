@@ -1,10 +1,20 @@
-FROM node:24 AS build-stage
+FROM node:24 AS testing-stage
 
 WORKDIR /usr/src/app
 
 COPY . .
 
 RUN npm ci
+
+RUN npm test
+
+FROM node:24 AS build-stage
+
+WORKDIR /usr/src/app
+
+COPY --from=testing-stage /usr/src/app . 
+
+# RUN npm ci
 
 ENV VITE_BACKEND_URL=http://localhost:3000
 
