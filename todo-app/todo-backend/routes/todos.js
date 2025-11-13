@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
   });
 
   //Increment to-do counter in Redis
-  let counter = await redis.getAsync("added_todos");
+  let counter = Number(await redis.getAsync("added_todos"));
   await redis.setAsync("added_todos", counter + 1);
 
   res.send(todo);
